@@ -16,6 +16,9 @@ For each activity, the system receives three distinct inputs:
 2. **CSV File:** Contains the Respiratory Rate (RR) time series.  
 3. **Start Timestamp:** A UNIX EPOCH number indicating the precise instant the RR time series began.
 
+Examples of bike activities and their associated files can be found on this [link](https://drive.google.com/drive/folders/1ZJqh0N8ofKVc3npUBX3W8TEE6n_ndWSI?usp=sharing).
+
+
 ## **1\. ⚙️ Backend Service & Database Requirements**
 
 You must implement a backend service (API) that manages data ingestion and retrieval, integrated with a database (your choice: PostgreSQL, SQLite, MongoDB, etc.).
