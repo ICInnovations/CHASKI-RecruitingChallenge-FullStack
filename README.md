@@ -1,0 +1,107 @@
+Full-Stack Engineer Challenge: Bike Activity Data Platform
+
+This challenge assesses your ability to design, implement, and integrate a robust full-stack solution. You will be building a prototype system for ingesting, storing, processing, and visualizing physiological data from bike activities.
+
+Maximum Time Commitment: 48 Hours
+
+🎯 The Scenario: Activity Ingestion and Multi-Platform Visualization
+
+You are tasked with building the core architecture for a platform that handles activity data from wearable sensors. This prototype must be capable of handling proprietary file inputs, persisting data, and providing insights via both a detailed web dashboard and a summarized mobile client.
+
+Input Data Structure
+
+For each activity, the system receives three distinct inputs:
+
+Garmin FIT File: Contains time series data for Heart Rate (HR), Power, Speed, Time, etc.
+
+CSV File: Contains the Respiratory Rate (RR) time series.
+
+Start Timestamp: A UNIX EPOCH number indicating the precise instant the RR time series began.
+
+1. ⚙️ Backend Service & Database Requirements
+
+You must implement a backend service (API) that manages data ingestion and retrieval, integrated with a database (your choice: PostgreSQL, SQLite, MongoDB, etc.).
+
+Task 1.1: Data Ingestion Pipeline
+
+Create the necessary infrastructure to accept, process, and store the activity data.
+
+File Upload Endpoint: Create a secure POST API endpoint (e.g., /api/v1/activities/upload) capable of simultaneously receiving the three required inputs for a single activity.
+
+Data Processing: Implement the necessary logic to parse the FIT file (extract HR, Power) and read the CSV file (extract RR).
+
+Alignment & Storage: Store the processed time-series data in your database. Crucially, the system must align and associate the RR and FIT data streams using the provided UNIX EPOCH timestamp, ensuring correct time-series correlation.
+
+Task 1.2: API Endpoints for Clients
+
+Create two distinct retrieval endpoints to optimize data transfer for different client needs:
+
+Detailed Time Series Endpoint: A GET endpoint (e.g., /api/v1/activities/{id}/data) returning all processed time-series data for chart plotting on the web and mobile (bonus).
+
+Summary Metrics Endpoint: A GET endpoint (e.g., /api/v1/activities/{id}/summary) that quickly returns pre-calculated summary metrics (e.g., Average HR, Max Power, Average RR, Total Duration).
+
+2. 📊 Web Dashboard (Interactive Prototype)
+
+Create a single-page application (SPA) that provides a comprehensive analytical view of the activities.
+
+Task 2.1: Visualization and Interactivity
+
+Activity History Selector: Implement a feature (e.g., a dropdown or sidebar) to select an activity from the history of activities stored in the database.
+
+Interactive Time Series: Display the full time series data for Heart Rate (HR), Respiratory Rate (RR), and Power (or Speed). The dashboard must be interactive, allowing the user to select or toggle which metrics are currently visible on the chart(s).
+
+Activity-Specific Metrics: Display key summary metrics for the currently chosen activity.
+
+Task 2.2: Global Insights & Reporting Stub
+
+Global Indicators: Implement a section that shows global aggregate metrics derived from all stored activities (e.g., Total Number of Activities, Historical Max Power, Average Activity Duration).
+
+PDF Reporting Stub: Include a visible "Generate Report (PDF)" button. The backend API endpoint (/api/v1/activities/{id}/report) must be implemented to accept the request and return a success status, demonstrating architectural readiness for future PDF generation logic.
+
+3. 📱 Mobile App Prototype (Activity Summary Client)
+
+Create a basic mobile application prototype (using a framework like React Native, Flutter, etc.) that demonstrates successful connectivity and data display.
+
+Task 3.1: Core Summary Client
+
+Activity Selector: Implement a view that lists the available activities from the backend.
+
+Summary Display: Upon selecting an activity, the app must call the Summary Metrics API Endpoint and display the activity-specific summary metrics (e.g., Average HR, Peak Power) clearly. The goal is to prove API connectivity.
+
+Task 3.2: [BONUS / STRETCH GOAL] Interactive Charts
+
+Implement a separate view in the mobile app that consumes the Detailed Time Series API Endpoint.
+
+Display a graphical, interactive time series chart for HR, RR, and Power for the selected session. This demonstrates proficiency in handling and visualizing dense data on mobile.
+
+✅ Deliverables
+
+Your submission must be a single, fully reproducible GitHub repository containing the following:
+
+1. Code & Architecture
+
+Complete Source Code: All source code for the backend service, database schema/setup scripts, the web dashboard, and the mobile app prototype.
+
+README.md: A clear and concise document that includes:
+
+Setup/Run Instructions: Detailed, step-by-step instructions to quickly install dependencies, initialize the database, and run the entire application (backend, web, and mobile client).
+
+Architecture Overview: A brief description and justification of the chosen technology stack for each component (Backend, Web, Mobile).
+
+2. Functional Prototypes
+
+Working Data Pipeline: Successful demonstration of the full cycle: file upload, parsing, correct storage, and subsequent retrieval by both front-end clients.
+
+Web Dashboard: A functional SPA meeting all requirements in Section 2.
+
+Mobile Client: A functional mobile prototype meeting the requirements in Section 3.1 (3.2 is a highly valued bonus).
+
+3. Presentation & Future Vision
+
+Summary Slide Deck: A short presentation (approx. 5-7 slides, format of your choice, e.g., Markdown, PDF, or HTML) that summarizes the platform. This deck must include:
+
+High-Level Architecture Overview (e.g., a simple diagram).
+
+Implementation Details (Key design decisions, especially regarding FIT/CSV parsing/alignment).
+
+Future Improvements (Suggestions for scaling, enhanced features, and any trade-offs made due to the 48-hour limit).
