@@ -87,7 +87,7 @@ Your submission must be a single, fully reproducible GitHub repository containin
 
 ### **3\. Presentation & Future Vision**
 
-* **Summary Slide Deck:** A short presentation (approx. 5-7 slides, format of your choice, e.g., Markdown, PDF, or HTML) that summarizes the platform. This deck must include:  
+* **Summary Slide Deck:** A short presentation (approx. 5-7 slides, PDF file) that summarizes the platform. This deck must include:  
   1. **High-Level Architecture Overview** (e.g., a simple diagram).  
   2. **Implementation Details** (Key design decisions, especially regarding FIT/CSV parsing/alignment).  
   3. **Future Improvements** (Suggestions for scaling, enhanced features, and any trade-offs made due to the 48-hour limit).  
